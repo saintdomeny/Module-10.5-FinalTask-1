@@ -23,17 +23,4 @@
             Console.ReadKey();
         }
     }
-
-    public interface ISum
-    {
-        public int Sum(int one, int two);
-    }
-
-    public class CalculateSum : ISum
-    {
-        int ISum.Sum(int one, int two)
-        {
-            return one + two;
-        }
-    }
 }
