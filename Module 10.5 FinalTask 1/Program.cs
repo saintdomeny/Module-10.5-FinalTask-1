@@ -2,9 +2,11 @@
 {
     internal class Program
     {
+        static ILogger Logger { get; set; }
         static void Main(string[] args)
         {
-            CalculateSum calculateSum = new CalculateSum();
+            Logger = new Logger();
+            CalculateSum calculateSum = new CalculateSum(Logger);
             int a, b;
             try
             {
@@ -16,8 +18,9 @@
                 var result = ((ISum)calculateSum).Sum(a, b);
                 Console.WriteLine("Result:" + result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                Logger.Error("Exception thrown:"); //Логирование ошибки красным цветом
                 Console.WriteLine(ex.Message);
             }
             Console.ReadKey();
